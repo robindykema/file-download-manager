@@ -1,0 +1,14 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  font-weight: normal;
+  font-size: 1.25rem;
+}
+
+.table td {
+  font-size: 1rem;
+}

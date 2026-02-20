@@ -1,5 +1,6 @@
 import FileRow from "../FileRow/FileRow";
 import type { FileItem } from "../../types";
+import styles from "./FileTable.module.css";
 
 interface Column {
   label: string;
@@ -14,7 +15,7 @@ interface FileTableProps {
 
 function FileTable({ files, columns, selectedIds, onToggle }: FileTableProps) {
   return (
-    <table>
+    <table className={styles.table}>
       <caption className="sr-only">Downloadable files</caption>
       <thead>
         <tr>
