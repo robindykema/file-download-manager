@@ -1,7 +1,11 @@
-interface StatusIndicatorProps {}
+import type { FileStatus } from "../../types";
 
-function StatusIndicator({}: StatusIndicatorProps) {
-  return <div>StatusIndicator</div>;
+interface StatusIndicatorProps {
+  status: FileStatus;
+}
+
+function StatusIndicator({ status }: StatusIndicatorProps) {
+  return <span>{status}</span>;
 }
 
 export default StatusIndicator;

@@ -1,7 +1,8 @@
 import DownloadManager from "./DownloadManager/DownloadManager";
+import { fileData } from "./fileData";
 
 function App() {
-  return <DownloadManager />;
+  return <DownloadManager files={fileData} />;
 }
 
 export default App;
