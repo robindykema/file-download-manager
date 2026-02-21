@@ -1,14 +1,24 @@
+.wrapper {
+  overflow-x: auto;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
+}
+
+.table thead tr {
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .table th {
   text-align: left;
   font-weight: normal;
   font-size: 1.25rem;
+  padding: 0.625rem 1rem;
 }
 
 .table td {
   font-size: 1rem;
+  padding: 0.625rem 1rem;
 }

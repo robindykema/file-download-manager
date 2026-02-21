@@ -15,26 +15,33 @@ interface FileTableProps {
 
 function FileTable({ files, columns, selectedIds, onToggle }: FileTableProps) {
   return (
-    <table className={styles.table}>
-      <caption className="sr-only">Downloadable files</caption>
-      <thead>
-        <tr>
-          <th scope="col">
-            <span className="sr-only">Select</span>
-          </th>
-          {columns.map((col) => (
-            <th key={col.label} scope="col">
-              {col.label}
+    <div className={styles.wrapper}>
+      <table className={styles.table}>
+        <caption className="sr-only">Downloadable files</caption>
+        <thead>
+          <tr>
+            <th scope="col">
+              <span className="sr-only">Select</span>
             </th>
+            {columns.map((col) => (
+              <th key={col.label} scope="col">
+                {col.label}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {files.map((file) => (
+            <FileRow
+              key={file.id}
+              file={file}
+              isSelected={selectedIds.includes(file.id)}
+              onToggle={onToggle}
+            />
           ))}
-        </tr>
-      </thead>
-      <tbody>
-        {files.map((file) => (
-          <FileRow file={file} />
-        ))}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   );
 }
 

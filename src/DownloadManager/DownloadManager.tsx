@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { DownloadToolbar, FileTable } from "../components";
 import type { FileItem } from "../types";
 
@@ -13,8 +14,12 @@ interface DownloadManagerProps {
 }
 
 function DownloadManager({ files }: DownloadManagerProps) {
+  const [selectedIds, setSelectedIds] = useState<number[]>([]);
+
   const handleToggle = (id: number) => {
-    console.log(id);
+    setSelectedIds((prev) =>
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+    );
   };
 
   return (
@@ -23,7 +28,7 @@ function DownloadManager({ files }: DownloadManagerProps) {
       <FileTable
         files={files}
         columns={columns}
-        selectedIds={[]}
+        selectedIds={selectedIds}
         onToggle={handleToggle}
       />
     </div>
