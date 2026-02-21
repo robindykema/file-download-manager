@@ -18,13 +18,26 @@ function DownloadManager({ files }: DownloadManagerProps) {
 
   const handleToggle = (id: number) => {
     setSelectedIds((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id],
     );
+  };
+
+  const handleSelectAll = () => {
+    const allSelected = selectedIds.length === files.length;
+    if (allSelected) {
+      setSelectedIds([]);
+    } else {
+      setSelectedIds(files.map((f) => f.id));
+    }
   };
 
   return (
     <div>
-      <DownloadToolbar />
+      <DownloadToolbar
+        selectedCount={selectedIds.length}
+        totalCount={files.length}
+        onSelectAll={handleSelectAll}
+      />
       <FileTable
         files={files}
         columns={columns}
