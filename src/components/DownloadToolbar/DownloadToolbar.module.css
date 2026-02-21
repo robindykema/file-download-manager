@@ -1,12 +1,35 @@
+.downloadButton {
+  margin-inline-start: 40px;
+  padding-block: 6px;
+  padding-inline: 12px;
+  font-size: 0.875rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: transparent;
+  color: #333;
+  cursor: pointer;
+}
+
+.downloadButton:hover:not(:disabled) {
+  background-color: #333;
+  color: #fff;
+}
+
+.downloadButton:disabled {
+  border-color: #ccc;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
 .selectedText {
   font-size: 1rem;
+  margin-inline-start: 10px;
 }
 
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px;
   padding-block: 12px;
   padding-inline: 16px;
   border-bottom: 1px solid #e0e0e0;

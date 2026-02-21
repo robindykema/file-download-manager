@@ -3,13 +3,17 @@ import styles from "./DownloadToolbar.module.css";
 interface DownloadToolbarProps {
   selectedCount: number;
   totalCount: number;
+  hasAvailableSelected: boolean;
   onSelectAll: () => void;
+  onDownload: () => void;
 }
 
 function DownloadToolbar({
   selectedCount,
   totalCount,
+  hasAvailableSelected,
   onSelectAll,
+  onDownload,
 }: DownloadToolbarProps) {
   const allSelected = selectedCount === totalCount;
 
@@ -24,6 +28,9 @@ function DownloadToolbar({
       <span className={styles.selectedText}>
         {selectedCount === 0 ? "None Selected" : `Selected ${selectedCount}`}
       </span>
+      <button className={styles.downloadButton} onClick={onDownload} disabled={!hasAvailableSelected}>
+        Download Selected
+      </button>
     </div>
   );
 }
