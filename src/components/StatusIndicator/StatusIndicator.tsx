@@ -8,7 +8,9 @@ interface StatusIndicatorProps {
 function StatusIndicator({ status }: StatusIndicatorProps) {
   return (
     <span className={styles.wrapper}>
-      {status === "available" && <span className={styles.dot} aria-hidden="true" />}
+      {status === "available" && (
+        <span className={styles.dot} aria-hidden="true" />
+      )}
       <span>{status.charAt(0).toUpperCase() + status.slice(1)}</span>
     </span>
   );
