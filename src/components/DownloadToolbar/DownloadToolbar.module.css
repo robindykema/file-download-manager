@@ -10,12 +10,12 @@
   cursor: pointer;
 }
 
-.downloadButton:hover:not(:disabled) {
+.downloadButton:hover:not([aria-disabled="true"]) {
   background-color: #333;
   color: #fff;
 }
 
-.downloadButton:disabled {
+.downloadButton[aria-disabled="true"] {
   border-color: #ccc;
   color: #ccc;
   cursor: not-allowed;

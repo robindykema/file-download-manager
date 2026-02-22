@@ -44,8 +44,8 @@ function DownloadToolbar({
       </span>
       <button
         className={styles.downloadButton}
-        onClick={onDownload}
-        disabled={!hasAvailableSelected}
+        onClick={hasAvailableSelected ? onDownload : undefined}
+        aria-disabled={!hasAvailableSelected}
       >
         Download Available
       </button>

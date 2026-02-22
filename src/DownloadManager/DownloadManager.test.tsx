@@ -64,14 +64,14 @@ describe("DownloadManager", () => {
     render(<DownloadManager files={fileData} />);
     const downloadButton = screen.getByText("Download Available");
     await userEvent.click(screen.getByText(scheduledFile.name));
-    expect(downloadButton).toBeDisabled();
+    expect(downloadButton).toHaveAttribute("aria-disabled", "true");
   });
 
   it("enables download button when at least one available file is selected", async () => {
     render(<DownloadManager files={fileData} />);
     const downloadButton = screen.getByText("Download Available");
     await userEvent.click(screen.getByText(availableFile.name));
-    expect(downloadButton).toBeEnabled();
+    expect(downloadButton).toHaveAttribute("aria-disabled", "false");
   });
 
   it("shows alert with device and path of available selected files", async () => {
