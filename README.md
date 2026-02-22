@@ -20,3 +20,4 @@ npm test
 - Additional test coverage
 - i18n support
 - Automated accessibility testing (e.g. axe)
+- Improved mobile experience

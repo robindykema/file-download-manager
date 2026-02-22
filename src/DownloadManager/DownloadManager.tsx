@@ -9,6 +9,11 @@ const columns = [
   { label: "Status" },
 ];
 
+const formatFileList = (filesToFormat: FileItem[]) =>
+  filesToFormat
+    .map((file) => `Device: ${file.device}\nPath: ${file.path}`)
+    .join("\n\n");
+
 interface DownloadManagerProps {
   files: FileItem[];
 }
@@ -36,19 +41,14 @@ function DownloadManager({ files }: DownloadManagerProps) {
       (file) => file.status !== "available",
     );
 
-    const availableList = availableFiles
-      .map((file) => `Device: ${file.device}\nPath: ${file.path}`)
-      .join("\n\n");
-
-    const messageParts: string[] = ["Download initiated:\n\n" + availableList];
+    const messageParts: string[] = [
+      "Download initiated:\n\n" + formatFileList(availableFiles),
+    ];
 
     if (unavailableFiles.length > 0) {
-      const unavailableList = unavailableFiles
-        .map((file) => `Device: ${file.device}\nPath: ${file.path}`)
-        .join("\n\n");
       messageParts.push(
         "The following files could not be downloaded because they aren't available yet:\n\n" +
-          unavailableList,
+          formatFileList(unavailableFiles),
       );
     }
 
