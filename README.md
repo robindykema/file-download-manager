@@ -21,3 +21,4 @@ npm test
 - i18n support
 - Automated accessibility testing (e.g. axe)
 - Improved mobile experience
+- Further investigation into `<tr>` click accessibility (currently rows are clickable for mouse users, keyboard users rely on the checkbox)

@@ -60,11 +60,13 @@ describe("DownloadManager", () => {
     expect((selectAll as HTMLInputElement).indeterminate).toBe(true);
   });
 
-  it("disables download button when no available files are selected", async () => {
+  it("disables download button and does not trigger download when only scheduled files are selected", async () => {
     render(<DownloadManager files={fileData} />);
     const downloadButton = screen.getByText("Download Available");
     await userEvent.click(screen.getByText(scheduledFile.name));
     expect(downloadButton).toHaveAttribute("aria-disabled", "true");
+    await userEvent.click(downloadButton);
+    expect(window.alert).not.toHaveBeenCalled();
   });
 
   it("enables download button when at least one available file is selected", async () => {
